@@ -2,11 +2,12 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
-apply plugin: 'kotlin-kapt' //for dagger
+apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
 android {
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.ankitaman.kotlinwithgit"
@@ -22,7 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
 }
+//    kapt { generateStubs = true }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -36,12 +40,20 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okHttpVersion"
+//    implementation "com.squareup.okhttp3:okhttp:$rootProject.okHttpVersion"
+
     // rxandroid
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
 
     implementation 'com.android.support:recyclerview-v7:27.0.2'
 
+
+
     //dagger
     implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    provided 'org.glassfish:javax.annotation:10.0-b28' // for app:kaptDebugKotlin
 }
+

@@ -1,4 +1,4 @@
-package com.ankitaman.kotlinwithgit
+package com.ankitaman.kotlinwithgit.network.model
 
 import com.google.gson.annotations.SerializedName
 

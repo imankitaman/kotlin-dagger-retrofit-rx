@@ -1,20 +1,22 @@
-package com.ankitaman.kotlinwithgit
+package com.ankitaman.kotlinwithgit.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ankitaman.kotlinwithgit.R
+import com.ankitaman.kotlinwithgit.network.model.RepoResponse
 import kotlinx.android.synthetic.main.repository_item.view.*
 
 /**
  * Created by ankitaman on 17/12/17.
  */
-class RepositorysAdapter(private val repositoryList: List<Response>,
+class RepositorysAdapter(private val repositoryList: List<RepoResponse>,
                          private val itemClick: Listener) : RecyclerView.Adapter<RepositorysAdapter.RepositoryViewHolder>() {
 
 
     interface Listener {
-        fun onItemClick(repo : Response)
+        fun onItemClick(repo : RepoResponse)
     }
 
 
@@ -34,7 +36,7 @@ class RepositorysAdapter(private val repositoryList: List<Response>,
     // Note Unit = Void in java
     class RepositoryViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(response: Response, itemClick: Listener){
+        fun bind(response: RepoResponse, itemClick: Listener){
             with(response){
                 itemView.tv_repo_name.text = name
                 itemView.tv_repo_language.text = language

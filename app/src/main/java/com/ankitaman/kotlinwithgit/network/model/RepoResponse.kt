@@ -1,8 +1,9 @@
-package com.ankitaman.kotlinwithgit
+package com.ankitaman.kotlinwithgit.network.model
 
+import com.ankitaman.kotlinwithgit.network.model.Owner
 import com.google.gson.annotations.SerializedName
 
-data class Response(
+data class RepoResponse(
 		@field:SerializedName("stargazers_count")
 		val stargazersCount: Int? = null,
 
